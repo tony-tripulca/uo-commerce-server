@@ -1,5 +1,7 @@
 import mysql from "mysql";
 
+import Logger from "../util/logger.js";
+
 var mysqlClient = mysql.createConnection({
   host: process.env.MYSQL_HOST,
   user: process.env.MYSQL_USER,
@@ -9,7 +11,7 @@ var mysqlClient = mysql.createConnection({
 
 mysqlClient.connect(function (err) {
   if (err) throw err;
-  console.log("Connected!");
+  Logger.out(["Connected!"]);
 });
 
 export default mysqlClient;
